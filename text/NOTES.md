@@ -9,7 +9,7 @@
     * Page 735 and on are very import to review.
     * ...
 2.  *** Good To Review ***
-    * Chapter 9 using a stack instead of recursion
+    * Chapter 9 using a stack instead of recursion(try to do first)
     * Page 697 Compare the iterator version and iterative method
     * ...
 3.  *** If Time Permits ***
@@ -19,3 +19,5 @@
 *** Currently doing: ***
 0.  
     1. Page 697 iterator's for traversal orders.
+        0. BinaryTree InorderIterator errors.[check]
+        1. BinaryTree PreorderIterator.[inProgress]

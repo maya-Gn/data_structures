@@ -1,8 +1,10 @@
 package TreePackage;
 
+import java.util.ArrayDeque;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* import StackAndQueuePackage.*; // Needed by tree iterators */
+import java.util.Queue;
 
 /**
    A class that implements the ADT binary tree.
@@ -109,14 +111,19 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
       return numberOfNodes;
    } // end getNumberOfNodes
 
+   public Iterator<T> getInorderIterator()
+   {
+      return new InorderIterator();
+   } // end getInorderIterator
+
    private class InorderIterator implements Iterator<T>
    {
-      private StackInterface<BinaryNode<T>> nodeStack;
+      private ArrayDeque<BinaryNode<T>> nodeStack;
       private BinaryNode<T> currentNode;
 
       public InorderIterator()
       {
-         nodeStack = new LinkedStack<>();
+         nodeStack = new ArrayDeque<>();
          currentNode = root;
       } // end default constructor
 
@@ -132,7 +139,7 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
          // Find leftmost node with no left child
          while (currentNode != null)
          {
-            nodeStack.push(currentNode);
+            nodeStack.addFirst(currentNode);
             currentNode = currentNode.getLeftChild();
          } // end while
 
@@ -155,5 +162,47 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
          throw new UnsupportedOperationException();
       } // end remove
    } // end InorderIterator
+
+   private class PreorderIterator implements Iterator<T>
+   {
+      private ArrayDeque<BinaryNode<T>> nodeStack;
+      private BinaryNode<T> currentNode;
+
+      public PreorderIterator()
+      {
+         nodeStack = new ArrayDeque<>();
+         currentNode = root;
+      }
+
+      public boolean hasNext()
+      {
+         return !nodeStack.isEmpty() || (currentNode != null);
+      }
+
+      // Implimentation not correct. Remove once it is.
+      public T next()
+      {
+         BinaryNode<T> nextNode = null;
+
+         while(currentNode != null)
+         {
+            nodeStack.addFirst(currentNode);
+            currentNode = currentNode.getRightChild();
+         }
+
+         if (!nodeStack.isEmpty())
+         {
+            nextNode = nodeStack.pop();
+            currentNode = nextNode.getLeftChild();
+         }
+
+         return nextNode.getData();
+      }
+
+      public void remove()
+      {
+         throw new UnsupportedOperationException();
+      }
+   }
 
 } // end BinaryTree
