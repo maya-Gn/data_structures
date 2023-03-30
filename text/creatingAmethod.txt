@@ -1,0 +1,5 @@
+For a given method from an interface, i.e GraphAlgorithmsInterface:
+    1) Understand what the method does.
+    2) Understand/KNOW what the parameters of the method are. DON'T ASSUME what the parameters are, know what they are and the methods they have.
+        2.1)***By understand what the parameters of the method are, I mean
+        to lookup the methods available to you for a given parameter. 

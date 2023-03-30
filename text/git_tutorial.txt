@@ -1,0 +1,11 @@
+1) git init
+    1.1) git init that also creates a directory: git init nameOfDirectory
+2) git status
+3) git remote add origin <repo http url>
+    4.1) git remote add origin https://github.com/...
+4) To add all the files in a directory:
+    git add nameOfDirectory/*
+5) To git add a folder:
+    5.1) git add --all
+6) git commit -m "first commint message"
+7) git push -u origin master

@@ -1,0 +1,66 @@
+/*
+ * TODO:
+ * Chapter 26(b) An implimantation of the ADT Dictionary.(page 754)
+ *      See Chapter 21(Array Based implimantation) for the class Entry
+ * Chapter 27(c) A Heap implimantation
+ * Chapter 28 Balanced Search Tree
+ * Take a look at chapter 18 on an effecient implimantion of a 
+ * sorted list(**pg 527)
+ * ** Section 18.4 EFFICIENCY: Designing with inheritance in mind!!!
+ * 
+ *
+ * Add concurrency and parallelism to ArrayListWithIterator.
+ * Pg 686 to 690 good to read/review.
+ * 
+ *
+ * Bellman-Ford and Shortest Pather Faster Algorithm(SPFA)
+ * String matching
+ */
+
+ /*
+ * algo:
+ * Iterator example pg 369
+ *      
+ */
+
+ /*
+ *NOTE object of type Interface vs Type class pg 304:
+ *   If an object is of type:some_Interface, only the methods in that interface
+ *   are available to that object. If an object is of type:some_class, that 
+ *   implements some_Interfacet that object can call methods in both  
+ *   some_Interface and some_class. i.e: Queue<T> mlabels = new ArrayDeque<>();
+ *   ArrayDeque implements Queue.
+ *NOTE:
+ *   Understand how to uses interfaces that require objects/classes that have iterators
+ * ->(iterator)pg 374 nextIndex return the index of Jess which is 0
+ *   Jess
+ *   Jin
+ *   Lop
+ *   question 4 pg 385 using example from pg 369
+ *   Iterator<T> nameIterator = LinkedListWithIterator.getIterator();
+ *
+ *NOTE TWO:
+ *   pg 389 segment 13.21
+ *   Although these traversal methods can execute quickly because 
+ *   they have direct access to the underlying data structure of the 
+ *     list, including them as list operations has disadvantages.
+ *   1) Only one traversal can be in progress at a time.
+ *   2) Moreover, an operation like resetTraversal, which is not in 
+ *   the interface Iterator, is necessary to initialize the traversal. 
+ *   3) Also mixing the functionality of a list with that of an iterator 
+ *   is poor design.
+ *
+ *NOTE Three:
+ *   pg 220 and 225(IMPORTANT!!!)
+ *
+ *NOTE Four:
+ *   pg 826 segment 29.13 using a stack to do a recursive action
+ *
+ *NOTE FIVE(NEAT):
+ *   take a look at the method getCheapestPath in DirectedGraph.java.
+ *   note how we they kept the edgelist in Vertex class private and 
+ *   provided iterator to be able to get the edgelist's data without 
+ *   having to actual us the edgeList of a Vertex outside the Vertex
+ *   Vertex class.
+ */
+ 
