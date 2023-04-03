@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* import StackAndQueuePackage.*; // Needed by tree iterators */
 import java.util.Queue;
+import java.util.Vector;
 
 /**
    A class that implements the ADT binary tree.
@@ -194,6 +195,61 @@ public class BinaryTree<T> implements BinaryTreeInterface<T>
          {
             nextNode = nodeStack.pop();
             currentNode = nextNode.getLeftChild();
+         }
+
+         return nextNode.getData();
+      }
+
+      public void remove()
+      {
+         throw new UnsupportedOperationException();
+      }
+   }
+
+   private class PostorderIterator implements Iterator<T>
+   {
+      private ArrayDeque<BinaryNode<T>> nodeStack;
+      private ArrayDeque<BinaryNode<T>> visitedNodes;
+      private BinaryNode<T> currentNode;
+
+      public PostorderIterator()
+      {
+         nodeStack = new ArrayDeque<>();
+         currentNode = root;
+      }
+
+      public boolean hasNext()
+      {
+         return !nodeStack.isEmpty() || (currentNode != null);
+      }
+
+      public T next()
+      {
+         BinaryNode<T> nextNode = null;
+         BinaryNode<T> prevNode = null;
+         
+         while (currentNode != null)
+         {
+            nodeStack.addFirst(currentNode);
+            if (currentNode.hasLeftChild())
+            {
+               currentNode = currentNode.getLeftChild();
+            }
+            else if (currentNode.hasRightChild())
+            {
+               visitedNodes.addFirst(currentNode);
+               currentNode = currentNode.getRightChild();
+            }
+            else
+            {
+               currentNode = null;
+            }
+         }
+
+         nextNode = nodeStack.pop();
+         if (!visitedNodes.isEmpty())
+         {
+            currentNode = visitedNodes.pop().getRightChild();
          }
 
          return nextNode.getData();
