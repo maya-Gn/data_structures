@@ -190,6 +190,27 @@ public class BinarySearchTree<T extends Comparable<? super T>>
       return rootNode;
    } // end removeLargest
 
+   private class ReturnObject
+   {
+      private T data;
+
+      public ReturnObject(T data)
+      {
+         this.data = data;
+      }
+
+      public void set(T data)
+      {
+         this.data = data;
+      }
+
+      public T get()
+      {
+         return data;
+      }
+
+   }
+
 
 /* Implementations of contains, getEntry, add, and remove are here.
    . . .
